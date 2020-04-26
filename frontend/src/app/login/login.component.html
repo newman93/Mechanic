@@ -6,7 +6,16 @@
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required [(ngModel)]="password">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <button class="btn btn-lg btn-primary btn-block" (click)="register()">Register</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
   </form>
 </body>
+
+<ngx-smart-modal #myBtstrpModal identifier="errorModal" [closable]="true" customClass="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title">Error</h5>
+	</div>
+	<div class="modal-body">
+		<p>{{ error }}</p>
+	</div>
+</ngx-smart-modal>

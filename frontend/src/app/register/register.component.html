@@ -12,6 +12,7 @@
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Password confimartion" name="password2" required [(ngModel)]="password2">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <button class="btn btn-lg btn-primary btn-block" (click)="login()">Login</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
   </form>
 </body>

@@ -16,12 +16,13 @@ export class RegisterComponent implements OnInit {
   password: string;
   password2: string;
   error: string;
+  data: string;
   
   constructor(private router: Router, private authService: AuthService, public ngxSmartModalService: NgxSmartModalService){
   }
 
   ngOnInit() {
-    this.authService.logout;
+    this.authService.logout();
   }
 
   register(e) {
@@ -31,6 +32,10 @@ export class RegisterComponent implements OnInit {
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
+  }
+
+  login() {
+    this.router.navigate(['/login']);
   }
 
   handleResponse(data) {

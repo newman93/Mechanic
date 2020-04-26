@@ -28,7 +28,7 @@ export class AuthService {
     return Observable.create((observer: Observer<any>) => {
         this.http.post(`${this.url}/login_check`, body ,{headers : headers} ).subscribe(
           data => {
-            this.handleLoginResponse(this.data, email),
+            this.handleLoginResponse(data, email),
             observer.next(data);
             observer.complete();
           },    
@@ -56,7 +56,7 @@ export class AuthService {
       this.http.post(`${this.url}/register`, body ,{headers : headers} )
         .subscribe(
           data => {
-            this.handleRegisterResponse(this.data),
+            this.handleRegisterResponse(data),
             observer.next(data);
             observer.complete();
           },              
