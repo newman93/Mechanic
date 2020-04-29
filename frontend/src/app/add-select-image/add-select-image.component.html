@@ -40,3 +40,12 @@
         </div>
     </fieldset>
 </form>
+
+<ngx-smart-modal #myBtstrpModal identifier="errorModal" [closable]="true" customClass="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title">Error</h5>
+	</div>
+	<div class="modal-body">
+		<p>{{ error }}</p>
+	</div>
+</ngx-smart-modal>

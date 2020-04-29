@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Http, Headers, Response, URLSearchParams} from '@angular/http';
 import { Observable, Observer } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { HttpClient, HttpRequest, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,24 +12,27 @@ export class AuthService {
   data: string;
   error: string;
 
-  constructor(private router: Router, private http: Http) {
+  constructor(private router: Router, private http: HttpClient) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
   }
 
   login(email: string, password: string): Observable<any> {
-    let headers = new Headers();
-    headers.append('content-type', 'application/x-www-form-urlencoded');
-    let body = new URLSearchParams();
-    body.set('email', email);
-    body.set('password', password);
+    let headers = new HttpHeaders({
+    'content-type': 'application/x-www-form-urlencoded'
+    });
+
+    let params = new HttpParams()
+      .set('email', email)
+      .set('password', password);
+  
 
     return Observable.create((observer: Observer<any>) => {
-        this.http.post(`${this.url}/login_check`, body ,{headers : headers} ).subscribe(
-          data => {
-            this.handleLoginResponse(data, email),
-            observer.next(data);
-            observer.complete();
+        this.http.post(`${this.url}/login_check`, params, {headers: headers}).subscribe(
+            data => {
+              this.handleLoginResponse(data, email),
+              observer.next(data);
+              observer.complete();
           },    
           error => observer.error(error)
         )
@@ -43,18 +45,18 @@ export class AuthService {
   }
 
   register(name: string, surname: string, email: string, password: string, password2: string): Observable<any> {
-    let headers = new Headers();
-    headers.append('content-type', 'application/x-www-form-urlencoded');
-    let body = new URLSearchParams();
-    body.set('name', name);
-    body.set('surname', surname);
-    body.set('email', email);
-    body.set('password', password);
-    body.set('password2', password2);
+    let headers = new HttpHeaders({
+      'content-type': 'application/x-www-form-urlencoded'
+      });
+    let params = new HttpParams()
+      .set('name', name)
+      .set('surname', surname)
+      .set('email', email)
+      .set('password', password)
+      .set('password2', password2);
 
     return Observable.create((observer: Observer<any>) => {
-      this.http.post(`${this.url}/register`, body ,{headers : headers} )
-        .subscribe(
+      this.http.post(`${this.url}/register`, params , {headers: headers}).subscribe(
           data => {
             this.handleRegisterResponse(data),
             observer.next(data);
@@ -67,7 +69,7 @@ export class AuthService {
   }
 
   handleLoginResponse(data, email) {
-    const token = data.json() && data.json().token;
+    const token = data && data.token;
     if (token) {
       this.token = token;
 

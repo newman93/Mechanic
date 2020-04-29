@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="defect")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\DefectRepository")
  */
 class Defect
 {
@@ -17,7 +18,7 @@ class Defect
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 

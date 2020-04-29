@@ -49,12 +49,14 @@ class AddController extends AbstractController
     }
 
      /**
-     * @Route("/get/id/{email}", name="get_images_ids")
+     * @Route("/get/ids", name="get_images_ids")
      */
-    public function getImages($mail, Add $addService)
+    public function getImages(Request $request, Add $addService)
     {
-        $ids = $addService->getImagesIds($email);
+        $email = $request->get('email');
 
+        $ids = $addService->getImagesIds($email);
+        
         $response = [
             'code' => 1,
             'message' => 'Success!',

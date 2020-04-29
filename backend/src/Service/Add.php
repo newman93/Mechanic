@@ -31,4 +31,10 @@ class Add extends AbstractService
 
         return $defect->getImage();
     }
+
+    public function getImagesIds($email) {
+       $ids = $this->entityManager->getRepository(Defect::class)->getImagesIds($email);
+       
+       return $ids;
+    }
 }

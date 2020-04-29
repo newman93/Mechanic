@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
@@ -52,7 +51,6 @@ import { AddSelectImageComponent } from './add-select-image/add-select-image.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
     HttpClientModule,
     FormsModule,
     NgxSmartModalModule.forRoot(),
