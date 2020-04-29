@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddDefectService } from '../add-defect.service';
 
 @Component({
   selector: 'app-add-defect',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDefectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private addDefect: AddDefectService) { }
 
   ngOnInit() {
   }

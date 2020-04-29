@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { UploadFilePickerAdapter } from '../upload-file-picker.adapter';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-add-upload',
@@ -9,9 +10,9 @@ import { UploadFilePickerAdapter } from '../upload-file-picker.adapter';
 })
 export class AddUploadComponent implements OnInit {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private user: UserService) {}
   
-  adapter = new UploadFilePickerAdapter(this.http);
+  adapter = new UploadFilePickerAdapter(this.http, this.user);
 
   ngOnInit() {
 

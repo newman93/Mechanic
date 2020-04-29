@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavComponent } from './nav/nav.component';
-import { UploadComponent } from './upload/upload.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { CardsComponent } from './cards/cards.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,13 +26,14 @@ import { AddEditorComponent } from './add-editor/add-editor.component';
 import { AddUploadComponent } from './add-upload/add-upload.component';
 import { AboutComponent } from './about/about.component';
 import { InformationsComponent } from './informations/informations.component';
+import { AddTitleComponent } from './add-title/add-title.component';
+import { AddSelectImageComponent } from './add-select-image/add-select-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     NavComponent,
-    UploadComponent,
     JumbotronComponent,
     CardsComponent,
     FooterComponent,
@@ -46,6 +46,8 @@ import { InformationsComponent } from './informations/informations.component';
     AddUploadComponent,
     AboutComponent,
     InformationsComponent,
+    AddTitleComponent,
+    AddSelectImageComponent,
   ],
   imports: [
     BrowserModule,
