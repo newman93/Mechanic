@@ -10,7 +10,7 @@ export class UploadFilePickerAdapter extends FilePickerAdapter {
   
   private url: string = 'http://127.0.0.1:8000/api';
   
-  constructor(private http: HttpClient, private user: UserService, private router: Router) {
+  constructor(private http: HttpClient, private user: UserService) {
     super();
   }
   public uploadFile(fileItem: FilePreviewModel) {
