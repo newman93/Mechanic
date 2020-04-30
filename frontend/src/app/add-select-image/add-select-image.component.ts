@@ -12,6 +12,8 @@ export class AddSelectImageComponent implements OnInit {
 
   email: string;
   error: string;
+  images = [];
+  imagesIds = [];
 
   constructor(private addDefect: AddDefectService, private user: UserService, public ngxSmartModalService: NgxSmartModalService) {
     this.email = user.getEmail();
@@ -30,9 +32,10 @@ export class AddSelectImageComponent implements OnInit {
 
   handleResponse(data) {
     let ids = data.data;
-    
+
     for(let key in ids) {
-      console.log(this.addDefect.getImage(ids[key].id));
+      this.images[key] = this.addDefect.getImage(ids[key].id);
+      this.imagesIds[key] = ids[key].id;
     }
   }
   

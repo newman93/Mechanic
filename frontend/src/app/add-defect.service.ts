@@ -35,4 +35,25 @@ export class AddDefectService {
   getImage(id) {
     return `${this.url}/get/image/${id}`;
   }
+
+  addDefect(selectImage: string, title: string, description: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.user.getToken()}`,
+    });
+    let params = new HttpParams()
+      .set('selectImage', selectImage)
+      .set('title', title)
+      .set('description', description);
+
+    return Observable.create((observer: Observer<any>) => {
+      this.http.post(`${this.url}/add`, params , {headers: headers}).subscribe(
+          data => {
+            observer.next(data);
+            observer.complete();
+          },              
+          error => observer.error(error)
+  
+        );
+    });
+  }
 }

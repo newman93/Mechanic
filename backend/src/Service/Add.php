@@ -37,4 +37,15 @@ class Add extends AbstractService
        
        return $ids;
     }
+
+    public function addDefect($selectImage, $title, $descritpion) {
+        $defect = $this->entityManager->getRepository(Defect::class)->find($selectImage);
+
+        $defect->setTitle($title);
+        $defect->setDescription($descritpion);
+
+        $this->entityManager->persist($defect);
+        $this->entityManager->flush();
+
+    }
 }

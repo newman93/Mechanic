@@ -39,13 +39,24 @@ class AddController extends AbstractController
     }
 
     /**
-     * @Route("/add", name="add_text")
+     * @Route("/add", name="add_defect")
      */
-    public function add()
+    public function add(Request $request,Add $addService)
     {
-        return $this->render('add/index.html.twig', [
-            'controller_name' => 'AddController',
-        ]);
+        $selectImage = $request->get('selectImage');
+        $title = $request->get('title');
+        $description = $request->get('description');
+
+        $addService->addDefect($selectImage, $title, $description);
+        
+        $response = [
+            'code' => 1,
+            'message' => 'Success!',
+            'data' => null,
+            'errors' => null
+        ]; 
+
+        return new JsonResponse($response,  Response::HTTP_OK, );  
     }
 
      /**

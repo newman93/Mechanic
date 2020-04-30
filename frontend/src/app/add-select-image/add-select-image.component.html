@@ -1,45 +1,16 @@
-<form>
     <fieldset id="selectImage">
         <div class="card-deck">
-            <div class="col sm-3">
+            <div class="col sm-3" *ngFor="let image of images, let i = index">
                 <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{{image}}" class="card-img-top" alt="..." width="200" height="200">
                     <div class="form-group form-radio container">
-                        <input type="radio" class="form-radio-input" id="selectImage" name="selectImage">
-                        <label class="form-radio-label" for="selectImage">Select</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col sm-3">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="form-group form-radio container">
-                        <input type="radio" class="form-radio-input" id="selectImage" name="selectImage">
-                        <label class="form-radio-label" for="selectImage">Select</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col sm-3">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="form-group form-radio container">
-                        <input type="radio" class="form-radio-input" id="selectImage" name="selectImage">
-                        <label class="form-radio-label" for="selectImage">Select</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col sm-3">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="form-group form-radio container">
-                        <input type="radio" class="form-radio-input" id="selectImage" name="selectImage">
+                        <input type="radio" class="form-radio-input" id="selectImage" name="selectImage" value="{{imagesIds[i]}}" [(ngModel)]="selectimage">
                         <label class="form-radio-label" for="selectImage">Select</label>
                     </div>
                 </div>
             </div>
         </div>
     </fieldset>
-</form>
 
 <ngx-smart-modal #myBtstrpModal identifier="errorModal" [closable]="true" customClass="modal-content">
 	<div class="modal-header">
