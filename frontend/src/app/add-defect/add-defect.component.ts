@@ -59,4 +59,15 @@ export class AddDefectComponent implements OnInit {
     this.error = JSON.parse(error._body).message;
     this.ngxSmartModalService.create('errorModal', error).open();
   }
+
+  delete(selectImage) {
+    this.addDefect.deleteImage(selectImage).subscribe(
+      data => this.handleDeleteResponse(data),
+      error => this.handleError(error)  
+    );
+  }
+
+  handleDeleteResponse(data) {
+    location.reload();
+  }
 }

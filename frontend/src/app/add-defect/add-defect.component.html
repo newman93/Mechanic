@@ -11,6 +11,7 @@
                             <input type="radio" class="form-radio-input" id="selectImage" name="selectImage" value="{{imagesIds[i]}}" [(ngModel)]="selectImage">
                             <label class="form-radio-label" for="selectImage">Select</label>
                         </div>
+                        <button class="btn btn-danger" (click)="delete(imagesIds[i])">Delete</button>                        
                     </div>
                 </div>
             </div>

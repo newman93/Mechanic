@@ -46,6 +46,12 @@ class Add extends AbstractService
 
         $this->entityManager->persist($defect);
         $this->entityManager->flush();
+    }
 
+    public function deleteImage($selectImage) {
+        $defect = $this->entityManager->getRepository(Defect::class)->find($selectImage);
+
+        $this->entityManager->remove($defect);
+        $this->entityManager->flush();
     }
 }

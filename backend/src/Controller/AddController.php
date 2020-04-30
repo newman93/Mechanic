@@ -87,4 +87,22 @@ class AddController extends AbstractController
         
         return new BinaryFileResponse($imagePath);
     }
+
+    /**
+     * @Route("/delete/image", name="delete_image")
+    */
+    public function deleteImage(Request $request, Add $addService)
+    {
+        $selectImage = $request->get('selectImage');
+        $imagePath = $addService->deleteImage($selectImage);
+        
+        $response = [
+            'code' => 1,
+            'message' => 'Success!',
+            'data' => null,
+            'errors' => null
+        ]; 
+
+        return new JsonResponse($response,  Response::HTTP_OK, );  
+    }
 }

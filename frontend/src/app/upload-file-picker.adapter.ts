@@ -27,11 +27,12 @@ export class UploadFilePickerAdapter extends FilePickerAdapter {
     .pipe(
       map( (res: HttpEvent<any>) => {
           if (res.type === HttpEventType.Response) {
-           
+           location.reload();
             return res.body.id.toString();
         } else if (res.type ===  HttpEventType.UploadProgress) {
-            
+            location.reload();
             const UploadProgress = +Math.round((100 * res.loaded) / res.total);
+            
             return UploadProgress;
         }
       })
