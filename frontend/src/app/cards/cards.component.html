@@ -1,46 +1,24 @@
 <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
         <div class="card-deck">
-            <div class="col-sm-3">
+            <div class="col-sm-3" *ngFor="let card of cards, let i = index">
                 <div class="card">
                     <div class="card-body">
-                        <img src="..." class="card-img-top" alt="...">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <img src="{{cards[i].image}}" class="card-img-top" alt="Defect">
+                        <h5 class="card-title">{{cards[i].title}}</h5>
+                        <div [innerHtml]="cards[i].description"></div>
                     </div>
                 </div>
             </div>  
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="..." class="card-img-top" alt="...">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>  
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="..." class="card-img-top" alt="...">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div> 
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="..." class="card-img-top" alt="...">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div> 
         </div>  
     </div>    
 </div>
+
+<ngx-smart-modal #myBtstrpModal identifier="errorModal" [closable]="true" customClass="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title">Error</h5>
+	</div>
+	<div class="modal-body">
+		<p>{{ error }}</p>
+	</div>
+</ngx-smart-modal>

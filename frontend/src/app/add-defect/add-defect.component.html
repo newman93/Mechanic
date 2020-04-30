@@ -1,8 +1,41 @@
 <app-navbar></app-navbar>
 <app-add-upload></app-add-upload>
 <form (ngSubmit)="onSubmit($event)">
-    <app-add-select-image></app-add-select-image>
-    <app-add-title></app-add-title>
-    <app-add-editor></app-add-editor>
+    <fieldset id="selectImage">
+        <div class="card-deck">
+            <div class="col sm-3" *ngFor="let image of images, let i = index">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{image}}" class="card-img-top" alt="..." width="200" height="200">
+                        <div class="form-group form-radio container">
+                            <input type="radio" class="form-radio-input" id="selectImage" name="selectImage" value="{{imagesIds[i]}}" [(ngModel)]="selectImage">
+                            <label class="form-radio-label" for="selectImage">Select</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="col-sm-12">
+        <form>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="email" name="title" class="form-control" id="title" aria-describedby="title" [(ngModel)]="title">
+            </div>
+        </form>
+    </div>
+    <textarea [froalaEditor] name="description" [(ngModel)]="description"></textarea> 
+    <div class="container">
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
 </form>
 <app-footer></app-footer>
+
+<ngx-smart-modal #myBtstrpModal identifier="errorModal" [closable]="true" customClass="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title">Error</h5>
+	</div>
+	<div class="modal-body">
+		<p>{{ error }}</p>
+	</div>
+</ngx-smart-modal>

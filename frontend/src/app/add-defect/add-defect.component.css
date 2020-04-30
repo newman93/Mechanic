@@ -1,0 +1,16 @@
+form-radio {
+    padding-top: 25px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.textarear {
+    width: 100%;
+}
+

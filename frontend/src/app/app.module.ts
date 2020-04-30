@@ -21,12 +21,9 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { AddDefectComponent } from './add-defect/add-defect.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { AddEditorComponent } from './add-editor/add-editor.component';
 import { AddUploadComponent } from './add-upload/add-upload.component';
 import { AboutComponent } from './about/about.component';
 import { InformationsComponent } from './informations/informations.component';
-import { AddTitleComponent } from './add-title/add-title.component';
-import { AddSelectImageComponent } from './add-select-image/add-select-image.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +38,9 @@ import { AddSelectImageComponent } from './add-select-image/add-select-image.com
     HomeComponent,
     AddDefectComponent,
     GalleryComponent,
-    AddEditorComponent,
     AddUploadComponent,
     AboutComponent,
     InformationsComponent,
-    AddTitleComponent,
-    AddSelectImageComponent,
   ],
   imports: [
     BrowserModule,

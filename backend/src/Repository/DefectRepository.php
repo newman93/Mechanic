@@ -32,4 +32,18 @@ class DefectRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function getCards($email)
+    {
+        $query = $this->createQueryBuilder('d');
+        return $query
+            ->select('d.id, d.image, d.title, d.description')
+            ->where('d.title != :null')
+            ->andWhere('d.description != :null')
+            ->andWhere('d.email = :email')
+            ->setParameters(['null' => 'NULL', 'email' => $email])
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
